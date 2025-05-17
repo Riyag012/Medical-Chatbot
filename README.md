@@ -36,7 +36,7 @@ This chatbot aims to assist users with basic medical knowledge queries by combin
 
 ---
 
-## How It Works
+## ⚙️ How It Works
 
 > This project uses the **RAG (Retrieval-Augmented Generation)** architecture.
 
