@@ -36,7 +36,7 @@ This chatbot aims to assist users with basic medical knowledge queries by combin
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 > This project uses the **RAG (Retrieval-Augmented Generation)** architecture.
 
@@ -101,7 +101,7 @@ medical-chatbot/
 
 ---
 
-## ⚠️ Challenges Faced
+## Challenges Faced
 
 - **Data Quality**: Limited to a single book, which may lack complete coverage.
 - **API Rate Limits**: Gemini and Pinecone have free-tier restrictions.
