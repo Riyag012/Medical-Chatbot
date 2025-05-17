@@ -8,7 +8,7 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 
 - [Overview](#-overview)
 - [Tech Stack](#-tech-stack)
-- [How It Works](#how-it-works)
+- [How It Works](#-how-it-works)
 - [Setup Instructions](#-setup-instructions)
 - [Directory Structure](#-directory-structure)
 - [Challenges Faced](#challenges-faced)
