@@ -5,6 +5,7 @@ pypdf
 python-dotenv
 pinecone[grpc]
 langchain-pinecone
+langchain-huggingface
 langchain_community
 langchain_experimental
 langchain_google_genai
