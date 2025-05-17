@@ -11,7 +11,7 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 - [How It Works](#%EF%B8%8F-how-it-works)
 - [Setup Instructions](#-setup-instructions)
 - [Directory Structure](#-directory-structure)
-- [Challenges Faced](#challenges-faced)
+- [Challenges Faced](#%EF%B8%8F-challenges-faced)
 - [Unique Features](#-unique-features)
 - [Future Improvements](#-future-improvements)
 - [Screenshots](#-screenshots)
