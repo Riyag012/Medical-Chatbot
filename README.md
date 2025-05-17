@@ -2,8 +2,6 @@
 
 A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **Pinecone**, and **Flask**. It leverages **RAG (Retrieval-Augmented Generation)** with data extracted from *The GALE Encyclopedia of Medicine* to provide informed responses related to health and medical queries.
 
-![Chatbot Screenshot](./SS/1.png)(./SS/2.png)
-
 ---
 
 ## 📑 Table of Contents
@@ -131,7 +129,8 @@ medical-chatbot/
 
 > UI built with HTML/CSS, screenshot stored in `SS/` folder.
 
-![Chatbot UI](./SS/1.png)(./SS/2.png)
+![Chatbot UI](./SS/1.png)
+![Chatbot UI](./SS/2.png)
 
 ---
 
