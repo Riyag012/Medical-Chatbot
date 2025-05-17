@@ -15,6 +15,7 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 - [Unique Features](#-unique-features)
 - [Future Improvements](#-future-improvements)
 - [Screenshots](#-screenshots)
+- [License](#-license)
 
 ---
 
@@ -57,7 +58,7 @@ This chatbot aims to assist users with basic medical knowledge queries by combin
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/your-username/medical-chatbot.git
-cd medical-chatbot
+cd Medical-Chatbot
 ```
 
 ### 2. Install dependencies
