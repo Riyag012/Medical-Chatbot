@@ -8,7 +8,7 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 
 - [Overview](#-overview)
 - [Tech Stack](#-tech-stack)
-- [How It Works](#-how-it-works)
+- [How It Works](#%EF%B8%8F-how-it-works)
 - [Setup Instructions](#-setup-instructions)
 - [Directory Structure](#-directory-structure)
 - [Challenges Faced](#challenges-faced)
@@ -101,7 +101,7 @@ medical-chatbot/
 
 ---
 
-## Challenges Faced
+## ⚠️ Challenges Faced
 
 - **Data Quality**: Limited to a single book, which may lack complete coverage.
 - **API Rate Limits**: Gemini and Pinecone have free-tier restrictions.
