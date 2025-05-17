@@ -4,6 +4,13 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 
 ---
 
+> UI built with HTML/CSS, screenshot stored in `SS/` folder.
+
+![Chatbot UI](./SS/1.png)
+![Chatbot UI](./SS/2.png)
+
+---
+
 ## 📑 Table of Contents
 
 - [Overview](#-overview)
@@ -14,7 +21,6 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 - [Challenges Faced](#%EF%B8%8F-challenges-faced)
 - [Unique Features](#-unique-features)
 - [Future Improvements](#-future-improvements)
-- [Screenshots](#-screenshots)
 - [License](#-license)
 
 ---
@@ -123,15 +129,6 @@ medical-chatbot/
 - Expand knowledge base using multiple medical datasets.
 - Add medical entity extraction and diagnosis capabilities.
 - Deploy with persistent hosting and authentication.
-
----
-
-## 📸 Screenshots
-
-> UI built with HTML/CSS, screenshot stored in `SS/` folder.
-
-![Chatbot UI](./SS/1.png)
-![Chatbot UI](./SS/2.png)
 
 ---
 
