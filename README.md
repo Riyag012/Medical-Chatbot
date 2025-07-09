@@ -10,49 +10,54 @@ A medical domain-specific chatbot built using **LangChain**, **Gemini API**, **P
 
 ## 📑 Table of Contents
 
-- [Overview](#-overview)
-- [Tech Stack](#-tech-stack)
-- [How It Works](#%EF%B8%8F-how-it-works)
-- [Setup Instructions](#-setup-instructions)
-- [Directory Structure](#-directory-structure)
-- [Challenges Faced](#%EF%B8%8F-challenges-faced)
-- [Unique Features](#-unique-features)
-- [Future Improvements](#-future-improvements)
-- [Screenshot](#-screenshot)
-- [License](#-license)
+* [Overview](#-overview)
+* [Tech Stack](#-tech-stack)
+* [How It Works](#-how-it-works)
+* [Setup Instructions](#-setup-instructions)
+* [Directory Structure](#-directory-structure)
+* [Challenges Faced](#-challenges-faced)
+* [Unique Features](#-unique-features)
+* [Future Improvements](#-future-improvements)
+* [Screenshot](#-screenshot)
+* [License](#-license)
 
 ---
 
 ## 📖 Overview
 
-This chatbot aims to assist users with basic medical knowledge queries by combining **retrieval-based search** with **generative AI**. It is different from general-purpose chatbots as it is trained only on medically relevant data from an authoritative source (*The GALE Encyclopedia of Medicine*).
+This chatbot answers user queries related to medical information using a custom **RAG pipeline** with context-aware prompt construction. It uses **Google Gemini** for generating responses, **Hugging Face embeddings** for semantic similarity, and **Pinecone** as the vector database. Queries are classified and routed for better accuracy, with dynamic fallback to real-time web search when needed.
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Frontend:** HTML, CSS (Flask Templates)
-- **Backend:** Flask
-- **LLM:** Gemini (via Google Generative AI API)
-- **RAG:** LangChain Retrieval Chain
-- **Vector Store:** Pinecone
-- **Embeddings:** HuggingFace Sentence Transformers
+* **Backend:** Python, Flask
+* **Frontend:** HTML, CSS (Flask Templates)
+* **LLM:** Gemini via Google Generative AI API
+* **RAG Framework:** LangChain
+* **Vector Store:** Pinecone
+* **Embeddings:** Hugging Face Sentence Transformers
+* **Web Search:** DuckDuckGo Search Tool
+* **Deployment:** Render
 
 ---
 
 ## ⚙️ How It Works
 
-> This project uses the **RAG (Retrieval-Augmented Generation)** architecture.
+> Uses a custom-built RAG pipeline enhanced with query classification and fallback logic.
 
-### 🧠 RAG Flow:
-1. **User Input**: The user enters a health-related query.
-2. **Retriever**: The question is embedded and compared to preprocessed chunks from the GALE book stored in Pinecone.
-3. **Relevant Context**: Top 3 most similar chunks are retrieved.
-4. **LLM Response**: The Gemini model receives both the query and retrieved context.
-5. **Response**: A medically informed response is returned to the user.
+### 🧠 Flow:
+
+1. **User Input**: The user submits a medical query.
+2. **Query Classification**: Determines if it’s general, drug-related, emergency, or requires recent info.
+3. **Retriever**: Top 3 most relevant medical chunks retrieved from Pinecone using embeddings.
+4. **Web Search (if needed)**: Fallback to DuckDuckGo for current or drug-specific data.
+5. **Prompt Construction**: Context from KB and web is formatted with role-specific prompts.
+6. **LLM Response**: Gemini generates a final answer with disclaimers.
+7. **Output**: A complete, safe medical response is sent back to the frontend.
 
 ```
-[User Input] → [Retriever: Pinecone + LangChain] → [Gemini LLM] → [Answer]
+[User Input] → [Query Classifier] → [Pinecone Retriever] → [Gemini + Prompt] → [Response with Disclaimer]
 ```
 
 ---
@@ -60,23 +65,27 @@ This chatbot aims to assist users with basic medical knowledge queries by combin
 ## 🚀 Setup Instructions
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/your-username/medical-chatbot.git
-cd Medical-Chatbot
+cd medical-chatbot
 ```
 
 ### 2. Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ### 3. Create a `.env` file and add:
+
 ```
 PINECONE_API_KEY=your_pinecone_key
-GOOGLE_API_KEY=your_google_gemini_key
+GOOGLE_API_KEY=your_gemini_key
 ```
 
 ### 4. Run the application
+
 ```bash
 python app.py
 ```
@@ -89,50 +98,50 @@ Visit `http://localhost:8080` in your browser.
 
 ```
 medical-chatbot/
-├── Data/                      # Raw data (GALE Encyclopedia PDF or text)
 ├── src/
-│   ├── helper.py              # Embedding + Pinecone utils
-│   ├── prompt.py              # Prompt template for Gemini
-├── static/
-│   └── style.css              # CSS styling
+│   ├── helper.py              # Embedding setup and retriever init
+│   └── prompt.py              # System prompts for each query type
 ├── templates/
-│   └── chat.html              # Web UI
-├── app.py                     # Main Flask backend + RAG logic
-├── store_index.py             # Builds and stores Pinecone index
+│   └── chat.html              # UI (copied template)
+├── static/                    # Optional styling
+├── app.py                     # Flask backend with RAG logic
 ├── requirements.txt
-└── .env                       # API keys (ignored in .gitignore)
+├── .env                       # Environment variables (API keys)
+└── SS/
+    └── 1.png, 2.png           # Screenshots
 ```
 
 ---
 
 ## ⚠️ Challenges Faced
 
-- **Data Quality**: Limited to a single book, which may lack complete coverage.
-- **API Rate Limits**: Gemini and Pinecone have free-tier restrictions.
-- **Deployment Constraints**: Avoiding paid services made optimization challenging.
+* Handling cases with limited information in vector DB
+* Preventing inaccurate LLM hallucinations for medical queries
+* Query routing to correct information source (KB or Web)
+* Dealing with LLM API rate limits and context token limits
 
 ---
 
 ## ✨ Unique Features
 
-- ✅ Built using free-tier tools only.
-- 🩺 Strictly medical-focused unlike general chatbots.
-- 📚 Powered by a well-known medical encyclopedia.
-- 🌐 Simple and responsive web interface.
+* Custom query classifier for accurate routing
+* Hybrid data use: vector DB + real-time web search
+* Contextual prompt engineering with disclaimers
+* Backend-first design with clear modular separation
+* Runs fully on free-tier services (Gemini + Pinecone + Render)
 
 ---
 
 ## 🔮 Future Improvements
 
-- Expand knowledge base using multiple medical datasets.
-- Add medical entity extraction and diagnosis capabilities.
-- Deploy with persistent hosting and authentication.
+* Add conversational memory to support multi-turn queries
+* Expand to multiple books/datasets for broader coverage
+* Add multilingual support for patient accessibility
+* Implement admin UI for dataset updates and logs
 
 ---
 
 ## 📸 Screenshot
-
-> UI built with HTML/CSS, screenshot stored in `SS/` folder.
 
 ![Chatbot UI](./SS/2.png)
 
@@ -142,5 +151,4 @@ medical-chatbot/
 
 This project is licensed under the MIT License.
 
----
 
